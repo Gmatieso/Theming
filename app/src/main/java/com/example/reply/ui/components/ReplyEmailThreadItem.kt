@@ -48,9 +48,12 @@ fun ReplyEmailThreadItem(
     Column(
         modifier = modifier
             .fillMaxWidth()
+            .padding(8.dp)
+            .background(
+                MaterialTheme.colorScheme.background,  //Details list item  with background theming applied
+                MaterialTheme.shapes.medium
+            )
             .padding(16.dp)
-            .background(MaterialTheme.colorScheme.background)   //Details list item  with background theming applied
-            .padding(20.dp)
     ) {
         // List item content
         Row(modifier = Modifier.fillMaxWidth()) {
