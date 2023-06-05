@@ -31,10 +31,11 @@ val typography = Typography(
         lineHeight = 32.sp,
         letterSpacing = 0.sp
     ),
+    //Applying custom typography to subject text
     titleLarge = TextStyle(
-        fontWeight = FontWeight.Normal,
+        fontWeight = FontWeight.SemiBold,
         fontSize = 18.sp,
-        lineHeight = 28.sp,
+        lineHeight = 32.sp,
         letterSpacing = 0.sp
     ),
     bodyLarge = TextStyle(
