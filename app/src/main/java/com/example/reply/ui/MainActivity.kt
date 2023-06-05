@@ -22,6 +22,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
+import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -41,16 +42,17 @@ class MainActivity : ComponentActivity() {
             val uiState by viewModel.uiState.collectAsState()
             //wraping  our main ReplyApp Composable with main theming fn
             AppTheme {
-                ReplyApp(
-                    replyHomeUIState = uiState,
-                    closeDetailScreen = {
-                        viewModel.closeDetailScreen()
-                    },
-                    navigateToDetail = { emailId ->
-                        viewModel.setSelectedEmail(emailId)
-                    }
-                )
-
+                Surface() {     //Adds bg with surface and tonal color
+                    ReplyApp(
+                        replyHomeUIState = uiState,
+                        closeDetailScreen = {
+                            viewModel.closeDetailScreen()
+                        },
+                        navigateToDetail = { emailId ->
+                            viewModel.setSelectedEmail(emailId)
+                        }
+                    )
+                }
             }
 
         }
@@ -67,9 +69,11 @@ class MainActivity : ComponentActivity() {
 )
 @Composable
 fun ReplyAppPreviewLight() {
-    ReplyApp(
-        replyHomeUIState = ReplyHomeUIState(
-            emails = LocalEmailsDataProvider.allEmails
+    AppTheme {
+        ReplyApp(
+            replyHomeUIState = ReplyHomeUIState(
+                emails = LocalEmailsDataProvider.allEmails
+            )
         )
-    )
+    }
 }
